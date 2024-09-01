@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <!-- Bootstrap icons cnd-->
+    <link rel ="stylesheet"href="http://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Gestion de tareas </title>
+     <!--IMPLEMENTACIÓN CSS-->
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <!-- SECCION PADDING 3 UNIDADES-->
+   <section class="p-3">
+     <div class="row">
+       <div class="col-12">
+                       <!--TITULO DE LA PAGINA -->
+        <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" id="logo"><img src="./imagenes/cohete.png" alt="" width="40px"><span id="span1">Task Management</span></a>
+              <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#useRForm">nuevo usuario <i class="bi bi-people"></i></button>
+       </div>
+     </div>
+       
+       <!-- TABLA PARA MOSTRAR LOS CAMPOS -->
+     <div class="row" >
+       <div class="col-12">
+              <table class="table table-striped table-hover mt-3 text-center table-bordered">
+
+                     <thead>
+                         <tr>
+                          <th>S.No</th>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>edad</th>
+                          <th>Pais</th>
+                          <th>Email</th>
+                          <th>Telefono</th>
+                          <th>Tareas</th>
+                          <th>Fecha Inicio</th>
+                          <th>Fecha Termino</th>
+                          <th>Acción</th>
+                         </tr>
+                     </thead>
+
+                     <tbody id="Data"></tbody>
+
+              </table>
+       </div>
+     </div> 
+   </section>
+
+
+
+      <!-- FORMULARIO NUEVO USUARIO-->
+ <!-- modal form -->
+  <div class="modal fade" id="useRForm">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+     <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Completa el Formulario</h4>
+          <botton type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></botton>
+        </div>
+        
+       <div class="modal-body">
+              <!-- CARGAR IMAGEN DE PERFIL-->
+            <form action="#" id="myform">
+
+                <div class="card imgholder">
+                 <label for="imgInput" class="upload">
+
+                  <input type="file" name="" id="imgInput">
+
+                  <i class ="bi bi-plus-circle-dotted"></i>
+
+                  </label>
+                  <img src="./imagenes/login2.jpg" alt="" width="200" height="200" class="img">
+                </div>
+                       <!-- CAMPOS DE ENTRADAS DE DATOS DE USUARIOS -->
+                <div class="inputField">
+                     <div>
+                      <label for="name">Nombre</label>
+                      <input type="text" name=""id="name"Required>
+                     </div>
+
+                     <div>
+                      <label for="age">Edad</label>
+                      <input type="number" name=""id="age"Required>
+                     </div>
+                    
+                     <div>
+                      <label for="city">Pais</label>
+                      <input type="text" name=""id="city"Required>
+                     </div>
+
+                     <div>
+                     <label for="name">Email</label>
+                     <input type="email" name=""id="email"Required>
+                     </div>
+
+                     <div>
+                      <label for="phone">Telefono</label>
+                      <input type="text" name=""id="phone"minlength="11" maxlength="11"Required>
+                     </div>
+
+                     <div>
+                      <label for="post">tareas</label>
+                      <input type="text" name=""id="post"Required>
+                     </div>
+
+                     <div>
+                      <label for="sDate">Fecha Inicio</label>
+                      <input type="date" name=""id="sDate"Required>
+                     </div>
+
+                     <div>
+                      <label for="sDate2">Fecha Ter.</label>
+                      <input type="date" name=""id="sDate2"Required>
+                     </div>
+                </div>
+            </form>  
+
+        </div>
+            <!-- BOTON ENVIO-->
+          <div class="modal-footer">
+          <button type="submit" form="myform" class="btn btn-primary submit">enviar</button>
+          </div> 
+      </div>
+
+    </div>
+
+  </div>
+      <!-- MOSTRAR DATOS EN EL PERFIL-->
+<!-- read data  -->
+  <div class="modal fade" id="readData">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+
+       <div class="modal-header">
+        <h4 class="modal-title">perfil</h4>
+        <botton type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></botton>
+       </div>
+      
+       <div class="modal-body">
+
+          <form action="#" id="myform">
+              <div class="card imgHolder">
+               
+                <img src="./imagenes/login2.jpg" alt="" width="200" height="200" class="showImg">
+              </div>
+               <!-- CAMPOS DESHABILITADOS QUE MUSTRAN LOS DATOS DE LOS USUARIOS -->
+              <div class="inputField">
+                   <div>
+                    <label for="name">Nombre</label>
+                    <input type="text" name=""id="showName"disabled>
+                   </div>
+
+                   <div>
+                    <label for="age">Edad</label>
+                    <input type="number" name=""id="showAge"disabled>
+                   </div>
+                  
+                   <div>
+                    <label for="city">Pais</label>
+                    <input type="text" name=""id="showCity"disabled>
+                   </div>
+
+                   <div>
+                   <label for="name">Email</label>
+                   <input type="email" name=""id="showEmail"disabled>
+                   </div>
+
+                   <div>
+                    <label for="phone">Telefono</label>
+                    <input type="text" name=""id="showPhone"minlength="11" maxlength="11"disabled>
+                   </div>
+
+                   <div>
+                    <label for="post">tareas</label>
+                    <input type="text" name=""id="showPost"disabled>
+                   </div>
+
+                   <div>
+                    <label for="sDate">Fecha Incio</label>
+                    <input type="date" name=""id="showsDate"disabled>
+                   </div>
+
+                   <div>
+                    <label for="sDate2">Fecha Ter.</label>
+                    <input type="date" name=""id="showsDate2"disabled>
+                   </div>
+              </div>
+
+
+          </form>  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- libreria bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <!-- implementación js--> 
+
+    <script src="index.js"></script>
+  </body>
+</html>
